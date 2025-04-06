@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tab_home"
+        android:title="Home"
+        android:icon="@drawable/round_home_24"/>
+    <item android:id="@+id/tab_favorites"
+        android:title="Likes"
+        android:icon="@drawable/round_favorite_24"/>
+    <item android:id="@+id/tab_skills"
+        android:title="Skills"
+        android:icon="@drawable/round_star_24"/>
+</menu>

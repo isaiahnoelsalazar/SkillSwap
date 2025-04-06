@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.MessageFragment">
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:id="@+id/backcontainer"
+           android:background="@drawable/bottom_border"
+           app:layout_constraintTop_toTopOf="parent"
+           android:layout_height="?attr/actionBarSize">
+
+           <ImageView
+               android:id="@+id/back_arrow"
+               android:layout_width="32dp"
+               android:layout_height="32dp"
+               android:background="@drawable/back_arrow_bg"
+               android:paddingTop="4dp"
+               android:paddingBottom="4dp"
+               android:paddingEnd="3dp"
+               android:paddingStart="0dp"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               android:clickable="true"
+               android:layout_marginStart="24dp"
+               android:focusable="true"
+               app:layout_constraintStart_toStartOf="parent"
+               android:src="@drawable/rounded_arrow_back_ios_new_24"/>
+
+           <TextView
+               android:id="@+id/instructor_name_message"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="@color/black"
+               android:textSize="18dp"
+               android:text="Instructor Name"
+               android:textStyle="bold"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="parent"/>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+       <ScrollView
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           app:layout_constraintTop_toBottomOf="@id/backcontainer"
+           app:layout_constraintBottom_toTopOf="@id/messagebar_container"
+           android:scrollbars="none"
+           android:fillViewport="true">
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/messages_rv"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+
+       </ScrollView>
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/messagebar_container"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:background="@drawable/top_border"
+           android:orientation="vertical"
+           android:paddingEnd="24dp"
+           android:paddingStart="24dp"
+           android:paddingBottom="16dp"
+           android:paddingTop="16dp"
+           app:layout_constraintBottom_toBottomOf="parent">
+
+           <EditText
+               android:id="@+id/message_area"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:background="@drawable/edittext_bg"
+               android:padding="16dp"
+               android:hint="Aa"
+               android:layout_marginEnd="24dp"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintEnd_toStartOf="@id/send_message"
+               android:singleLine="true"
+               android:drawablePadding="8dp"/>
+
+           <ImageView
+               android:id="@+id/send_message"
+               android:layout_width="32dp"
+               android:layout_height="32dp"
+               android:background="@drawable/back_arrow_bg"
+               android:paddingTop="4dp"
+               android:paddingEnd="4dp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               android:paddingBottom="4dp"
+               android:paddingStart="6dp"
+               app:layout_constraintTop_toTopOf="parent"
+               android:clickable="true"
+               app:layout_constraintEnd_toEndOf="parent"
+               android:focusable="true"
+               android:src="@drawable/round_send_24"/>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <Transition
+        app:autoTransition="animateToEnd"
+        app:duration="1000"
+        app:constraintSetEnd="@layout/fragment_splash_screen_end"
+        app:constraintSetStart="@layout/fragment_splash_screen_start" />
+</MotionScene>
