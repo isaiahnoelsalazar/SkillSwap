@@ -1,5 +1,7 @@
 package com.salazarisaiahnoel.skillswap.fragments;
 
+import static com.salazarisaiahnoel.skillswap.fragments.HomeFragment.bnv;
+
 import android.content.Context;
 import android.os.Bundle;
 
@@ -57,7 +59,9 @@ public class SplashScreenFragment extends Fragment {
             public boolean onKey(View view, int i, KeyEvent keyEvent) {
                 if (!(requireActivity().getSupportFragmentManager().findFragmentById(R.id.homeFrame) instanceof TabSkillsFragment)){
                     requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeFrame, new TabSkillsFragment()).commit();
+                    bnv.setSelectedItemId(R.id.tab_skills);
                 }
+                requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeFrame, new TabSkillsFragment(search.getText().toString().toLowerCase())).commit();
                 if (keyEvent.getAction() == KeyEvent.ACTION_DOWN && keyEvent.getKeyCode() == KeyEvent.KEYCODE_ENTER){
                     requireActivity().getSupportFragmentManager().beginTransaction().replace(R.id.homeFrame, new TabSkillsFragment(search.getText().toString().toLowerCase())).commit();
                     InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);

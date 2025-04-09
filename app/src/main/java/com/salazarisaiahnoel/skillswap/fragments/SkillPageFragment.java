@@ -6,6 +6,7 @@ import static com.salazarisaiahnoel.skillswap.fragments.TabFavoritesFragment.ref
 import static com.salazarisaiahnoel.skillswap.others.GlobalThings.decodeSampledBitmapFromResource;
 import static com.salazarisaiahnoel.skillswap.others.GlobalThings.skill_items;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -59,6 +61,12 @@ public class SkillPageFragment extends Fragment {
         flags &= ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         requireActivity().getWindow().getDecorView().setSystemUiVisibility(flags);
 
+        try {
+            InputMethodManager inputMethodManager = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(requireView().getWindowToken(), 0);
+        } catch (Exception ignored){
+        }
+
         EasySQL easySQL = new EasySQL(requireContext());
 
         ImageView backarrow = view.findViewById(R.id.back_arrow);
@@ -70,7 +78,10 @@ public class SkillPageFragment extends Fragment {
                     requireActivity().getWindow().setStatusBarColor(requireContext().getColor(R.color.white));
                     requireActivity().getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
                 }
-                refreshData();
+                try {
+                    refreshData();
+                } catch (Exception ignored){
+                }
                 requireActivity().getSupportFragmentManager().beginTransaction().remove(requireActivity().getSupportFragmentManager().findFragmentById(R.id.mainFrame)).commit();
             }
         });
